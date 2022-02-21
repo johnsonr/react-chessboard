@@ -10543,6 +10543,9 @@ function Board() {
       children: arrows.map(arrow => {
         const from = getRelativeCoords(boardOrientation, boardWidth, arrow[0]);
         const to = getRelativeCoords(boardOrientation, boardWidth, arrow[1]);
+        // Determine the arrow color from the 3rd array element if present
+        const fill = arrow.length > 2 ? arrow[2] : customArrowColor;
+
         return /*#__PURE__*/jsxRuntime.jsxs(React.Fragment, {
           children: [/*#__PURE__*/jsxRuntime.jsx("defs", {
             children: /*#__PURE__*/jsxRuntime.jsx("marker", {
@@ -10555,7 +10558,7 @@ function Board() {
               children: /*#__PURE__*/jsxRuntime.jsx("polygon", {
                 points: "0 0, 2 1.25, 0 2.5",
                 style: {
-                  fill: customArrowColor
+                  fill
                 }
               })
             })
